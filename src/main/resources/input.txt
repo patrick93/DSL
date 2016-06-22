@@ -1,0 +1,9 @@
+teste :
+    package : org.ufrj.teste,
+    fields : [
+        teste: String,
+        prop2: int,
+        prop3: boolean
+    ],
+    all,
+    none;
