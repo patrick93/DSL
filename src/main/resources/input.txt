@@ -6,4 +6,4 @@ teste :
         prop3: boolean
     ],
     all,
-    none;
+    all;
