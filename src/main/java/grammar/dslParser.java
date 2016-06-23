@@ -19,8 +19,8 @@ public class dslParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
-		ID=10, PACKAGE_NAME=11, LOWER_ID=12, WS=13;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, ID=8, PACKAGE_NAME=9, 
+		LOWER_ID=10, WS=11;
 	public static final int
 		RULE_class_stmt = 0, RULE_package_stmt = 1, RULE_properties_stmt = 2, 
 		RULE_property_stmt = 3, RULE_constructor_stmt = 4, RULE_getset_stmt = 5;
@@ -30,11 +30,10 @@ public class dslParser extends Parser {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "':'", "','", "';'", "'package'", "'fields'", "'['", "']'", "'all'", 
-		"'none'"
+		null, "':'", "','", "';'", "'['", "']'", "'all'", "'none'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, null, null, null, null, null, null, null, null, "ID", "PACKAGE_NAME", 
+		null, null, null, null, null, null, null, null, "ID", "PACKAGE_NAME", 
 		"LOWER_ID", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
@@ -204,10 +203,6 @@ public class dslParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(23);
-			match(T__3);
-			setState(24);
-			match(T__0);
-			setState(25);
 			match(PACKAGE_NAME);
 			}
 		}
@@ -264,32 +259,28 @@ public class dslParser extends Parser {
 			_localctx = new PropertiesContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(27);
-			match(T__4);
-			setState(28);
-			match(T__0);
-			setState(29);
-			match(T__5);
-			setState(30);
+			setState(25);
+			match(T__3);
+			setState(26);
 			property_stmt();
-			setState(35);
+			setState(31);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==T__1) {
 				{
 				{
-				setState(31);
+				setState(27);
 				match(T__1);
-				setState(32);
+				setState(28);
 				property_stmt();
 				}
 				}
-				setState(37);
+				setState(33);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(38);
-			match(T__6);
+			setState(34);
+			match(T__4);
 			}
 		}
 		catch (RecognitionException re) {
@@ -342,11 +333,11 @@ public class dslParser extends Parser {
 			_localctx = new PropertyContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(40);
+			setState(36);
 			match(ID);
-			setState(41);
+			setState(37);
 			match(T__0);
-			setState(42);
+			setState(38);
 			match(ID);
 			}
 		}
@@ -430,50 +421,50 @@ public class dslParser extends Parser {
 		enterRule(_localctx, 8, RULE_constructor_stmt);
 		int _la;
 		try {
-			setState(56);
+			setState(52);
 			switch (_input.LA(1)) {
-			case T__7:
+			case T__5:
 				_localctx = new Constructor_allContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(44);
-				match(T__7);
+				setState(40);
+				match(T__5);
 				}
 				break;
-			case T__5:
+			case T__3:
 				_localctx = new Constructor_arrayContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(45);
-				match(T__5);
-				setState(46);
+				setState(41);
+				match(T__3);
+				setState(42);
 				match(ID);
-				setState(51);
+				setState(47);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==T__1) {
 					{
 					{
-					setState(47);
+					setState(43);
 					match(T__1);
-					setState(48);
+					setState(44);
 					match(ID);
 					}
 					}
-					setState(53);
+					setState(49);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(54);
-				match(T__6);
+				setState(50);
+				match(T__4);
 				}
 				break;
-			case T__8:
+			case T__6:
 				_localctx = new Constructor_noneContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(55);
-				match(T__8);
+				setState(51);
+				match(T__6);
 				}
 				break;
 			default:
@@ -560,50 +551,50 @@ public class dslParser extends Parser {
 		enterRule(_localctx, 10, RULE_getset_stmt);
 		int _la;
 		try {
-			setState(70);
+			setState(66);
 			switch (_input.LA(1)) {
-			case T__7:
+			case T__5:
 				_localctx = new Getset_allContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(58);
-				match(T__7);
+				setState(54);
+				match(T__5);
 				}
 				break;
-			case T__5:
+			case T__3:
 				_localctx = new Getset_arrayContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(59);
-				match(T__5);
-				setState(60);
+				setState(55);
+				match(T__3);
+				setState(56);
 				match(ID);
-				setState(65);
+				setState(61);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==T__1) {
 					{
 					{
-					setState(61);
+					setState(57);
 					match(T__1);
-					setState(62);
+					setState(58);
 					match(ID);
 					}
 					}
-					setState(67);
+					setState(63);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(68);
-				match(T__6);
+				setState(64);
+				match(T__4);
 				}
 				break;
-			case T__8:
+			case T__6:
 				_localctx = new Getset_noneContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(69);
-				match(T__8);
+				setState(65);
+				match(T__6);
 				}
 				break;
 			default:
@@ -622,25 +613,24 @@ public class dslParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\17K\4\2\t\2\4\3\t"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\rG\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2"+
-		"\3\2\3\2\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\4\7\4$\n\4\f\4\16\4\'\13"+
-		"\4\3\4\3\4\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\7\6\64\n\6\f\6\16\6\67"+
-		"\13\6\3\6\3\6\5\6;\n\6\3\7\3\7\3\7\3\7\3\7\7\7B\n\7\f\7\16\7E\13\7\3\7"+
-		"\3\7\5\7I\n\7\3\7\2\2\b\2\4\6\b\n\f\2\2K\2\16\3\2\2\2\4\31\3\2\2\2\6\35"+
-		"\3\2\2\2\b*\3\2\2\2\n:\3\2\2\2\fH\3\2\2\2\16\17\7\f\2\2\17\20\7\3\2\2"+
-		"\20\21\5\4\3\2\21\22\7\4\2\2\22\23\5\6\4\2\23\24\7\4\2\2\24\25\5\n\6\2"+
-		"\25\26\7\4\2\2\26\27\5\f\7\2\27\30\7\5\2\2\30\3\3\2\2\2\31\32\7\6\2\2"+
-		"\32\33\7\3\2\2\33\34\7\r\2\2\34\5\3\2\2\2\35\36\7\7\2\2\36\37\7\3\2\2"+
-		"\37 \7\b\2\2 %\5\b\5\2!\"\7\4\2\2\"$\5\b\5\2#!\3\2\2\2$\'\3\2\2\2%#\3"+
-		"\2\2\2%&\3\2\2\2&(\3\2\2\2\'%\3\2\2\2()\7\t\2\2)\7\3\2\2\2*+\7\f\2\2+"+
-		",\7\3\2\2,-\7\f\2\2-\t\3\2\2\2.;\7\n\2\2/\60\7\b\2\2\60\65\7\f\2\2\61"+
-		"\62\7\4\2\2\62\64\7\f\2\2\63\61\3\2\2\2\64\67\3\2\2\2\65\63\3\2\2\2\65"+
-		"\66\3\2\2\2\668\3\2\2\2\67\65\3\2\2\28;\7\t\2\29;\7\13\2\2:.\3\2\2\2:"+
-		"/\3\2\2\2:9\3\2\2\2;\13\3\2\2\2<I\7\n\2\2=>\7\b\2\2>C\7\f\2\2?@\7\4\2"+
-		"\2@B\7\f\2\2A?\3\2\2\2BE\3\2\2\2CA\3\2\2\2CD\3\2\2\2DF\3\2\2\2EC\3\2\2"+
-		"\2FI\7\t\2\2GI\7\13\2\2H<\3\2\2\2H=\3\2\2\2HG\3\2\2\2I\r\3\2\2\2\7%\65"+
-		":CH";
+		"\3\2\3\2\3\3\3\3\3\4\3\4\3\4\3\4\7\4 \n\4\f\4\16\4#\13\4\3\4\3\4\3\5\3"+
+		"\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\7\6\60\n\6\f\6\16\6\63\13\6\3\6\3\6\5\6"+
+		"\67\n\6\3\7\3\7\3\7\3\7\3\7\7\7>\n\7\f\7\16\7A\13\7\3\7\3\7\5\7E\n\7\3"+
+		"\7\2\2\b\2\4\6\b\n\f\2\2G\2\16\3\2\2\2\4\31\3\2\2\2\6\33\3\2\2\2\b&\3"+
+		"\2\2\2\n\66\3\2\2\2\fD\3\2\2\2\16\17\7\n\2\2\17\20\7\3\2\2\20\21\5\4\3"+
+		"\2\21\22\7\4\2\2\22\23\5\6\4\2\23\24\7\4\2\2\24\25\5\n\6\2\25\26\7\4\2"+
+		"\2\26\27\5\f\7\2\27\30\7\5\2\2\30\3\3\2\2\2\31\32\7\13\2\2\32\5\3\2\2"+
+		"\2\33\34\7\6\2\2\34!\5\b\5\2\35\36\7\4\2\2\36 \5\b\5\2\37\35\3\2\2\2 "+
+		"#\3\2\2\2!\37\3\2\2\2!\"\3\2\2\2\"$\3\2\2\2#!\3\2\2\2$%\7\7\2\2%\7\3\2"+
+		"\2\2&\'\7\n\2\2\'(\7\3\2\2()\7\n\2\2)\t\3\2\2\2*\67\7\b\2\2+,\7\6\2\2"+
+		",\61\7\n\2\2-.\7\4\2\2.\60\7\n\2\2/-\3\2\2\2\60\63\3\2\2\2\61/\3\2\2\2"+
+		"\61\62\3\2\2\2\62\64\3\2\2\2\63\61\3\2\2\2\64\67\7\7\2\2\65\67\7\t\2\2"+
+		"\66*\3\2\2\2\66+\3\2\2\2\66\65\3\2\2\2\67\13\3\2\2\28E\7\b\2\29:\7\6\2"+
+		"\2:?\7\n\2\2;<\7\4\2\2<>\7\n\2\2=;\3\2\2\2>A\3\2\2\2?=\3\2\2\2?@\3\2\2"+
+		"\2@B\3\2\2\2A?\3\2\2\2BE\7\7\2\2CE\7\t\2\2D8\3\2\2\2D9\3\2\2\2DC\3\2\2"+
+		"\2E\r\3\2\2\2\7!\61\66?D";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

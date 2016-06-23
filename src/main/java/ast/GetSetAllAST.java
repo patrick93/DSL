@@ -9,7 +9,7 @@ public class GetSetAllAST implements AST {
     private final String SET_BASE_STMT = "\tpublic void set%s(%s %s){\n\t\tthis.%s = %s;\n\t}";
 
     @Override
-    public String execute(SymbolTable symbolTable) {
+    public String execute(SymbolTable symbolTable) throws Exception {
         List<String> propertiesNames = symbolTable.getAllPropertiesNames();
         String result = "";
         for (String property : propertiesNames) {
@@ -20,5 +20,10 @@ public class GetSetAllAST implements AST {
             result += "\n" + getStatement + "\n\n" + setStatement + "\n";
         }
         return result;
+    }
+
+    @Override
+    public void loadSymbolTable(SymbolTable symbolTable) throws Exception {
+
     }
 }

@@ -7,10 +7,10 @@ grammar dsl;
 class_stmt: ID ':' package_stmt ',' properties_stmt ',' constructor_stmt ',' getset_stmt ';'  #class
     ;
 
-package_stmt: 'package' ':' PACKAGE_NAME  #package
+package_stmt: PACKAGE_NAME  #package
     ;
 
-properties_stmt: 'fields' ':' '[' property_stmt (',' property_stmt)* ']' #properties
+properties_stmt: '[' property_stmt (',' property_stmt)* ']' #properties
     ;
 
 property_stmt: ID ':' ID #property

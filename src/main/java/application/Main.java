@@ -32,10 +32,13 @@ public class Main {
             Visitor visitor = new Visitor();
             AST ast = visitor.visit(tree);
             SymbolTable symbolTable = new SymbolTable(new HashMap<String, String>());
+            ast.loadSymbolTable(symbolTable);
             ast.execute(symbolTable);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

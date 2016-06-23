@@ -14,7 +14,7 @@ public class GetSetArrayAST implements AST {
     }
 
     @Override
-    public String execute(SymbolTable symbolTable) {
+    public String execute(SymbolTable symbolTable) throws Exception {
         String result = "";
         for (String property : properties) {
             String propertyType = symbolTable.getPropertyType(property);
@@ -24,5 +24,10 @@ public class GetSetArrayAST implements AST {
             result += "\n" + getStatement + "\n\n" + setStatement + "\n";
         }
         return result;
+    }
+
+    @Override
+    public void loadSymbolTable(SymbolTable symbolTable) throws Exception {
+
     }
 }

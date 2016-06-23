@@ -7,4 +7,9 @@ public class ConstructorNoneAST implements AST {
     public String execute(SymbolTable symbolTable) {
         return "";
     }
+
+    @Override
+    public void loadSymbolTable(SymbolTable symbolTable) throws Exception {
+
+    }
 }

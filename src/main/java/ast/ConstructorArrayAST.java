@@ -16,7 +16,7 @@ public class ConstructorArrayAST implements AST {
     }
 
     @Override
-    public String execute(SymbolTable symbolTable) {
+    public String execute(SymbolTable symbolTable) throws Exception {
         String className = symbolTable.getClassName();
         List<String> constructorProperties = new ArrayList<String>();
         String constructorBody = "";
@@ -28,5 +28,10 @@ public class ConstructorArrayAST implements AST {
         String constructorParameters = Joiner.on(", ").join(constructorProperties);
         String result = String.format(CONSTRUCTOR_STMT, className, constructorParameters, constructorBody);
         return result;
+    }
+
+    @Override
+    public void loadSymbolTable(SymbolTable symbolTable) throws Exception {
+
     }
 }

@@ -1,4 +1,4 @@
-package org.ufrj.teste
+package org.package.teste
 
 public class teste {
 	private String teste;
