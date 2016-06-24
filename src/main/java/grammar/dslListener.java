@@ -59,74 +59,98 @@ public interface dslListener extends ParseTreeListener {
 	 */
 	void exitProperty(dslParser.PropertyContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code constructor_all}
+	 * Enter a parse tree produced by the {@code constructor}
 	 * labeled alternative in {@link dslParser#constructor_stmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstructor(dslParser.ConstructorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code constructor}
+	 * labeled alternative in {@link dslParser#constructor_stmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstructor(dslParser.ConstructorContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code constructor_all}
+	 * labeled alternative in {@link dslParser#constructor_body_stmt}.
 	 * @param ctx the parse tree
 	 */
 	void enterConstructor_all(dslParser.Constructor_allContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code constructor_all}
-	 * labeled alternative in {@link dslParser#constructor_stmt}.
+	 * labeled alternative in {@link dslParser#constructor_body_stmt}.
 	 * @param ctx the parse tree
 	 */
 	void exitConstructor_all(dslParser.Constructor_allContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code constructor_array}
-	 * labeled alternative in {@link dslParser#constructor_stmt}.
+	 * labeled alternative in {@link dslParser#constructor_body_stmt}.
 	 * @param ctx the parse tree
 	 */
 	void enterConstructor_array(dslParser.Constructor_arrayContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code constructor_array}
-	 * labeled alternative in {@link dslParser#constructor_stmt}.
+	 * labeled alternative in {@link dslParser#constructor_body_stmt}.
 	 * @param ctx the parse tree
 	 */
 	void exitConstructor_array(dslParser.Constructor_arrayContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code constructor_none}
-	 * labeled alternative in {@link dslParser#constructor_stmt}.
+	 * labeled alternative in {@link dslParser#constructor_body_stmt}.
 	 * @param ctx the parse tree
 	 */
 	void enterConstructor_none(dslParser.Constructor_noneContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code constructor_none}
-	 * labeled alternative in {@link dslParser#constructor_stmt}.
+	 * labeled alternative in {@link dslParser#constructor_body_stmt}.
 	 * @param ctx the parse tree
 	 */
 	void exitConstructor_none(dslParser.Constructor_noneContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code getset_all}
+	 * Enter a parse tree produced by the {@code getset}
 	 * labeled alternative in {@link dslParser#getset_stmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterGetset(dslParser.GetsetContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code getset}
+	 * labeled alternative in {@link dslParser#getset_stmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitGetset(dslParser.GetsetContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code getset_all}
+	 * labeled alternative in {@link dslParser#getset_body_stmt}.
 	 * @param ctx the parse tree
 	 */
 	void enterGetset_all(dslParser.Getset_allContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code getset_all}
-	 * labeled alternative in {@link dslParser#getset_stmt}.
+	 * labeled alternative in {@link dslParser#getset_body_stmt}.
 	 * @param ctx the parse tree
 	 */
 	void exitGetset_all(dslParser.Getset_allContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code getset_array}
-	 * labeled alternative in {@link dslParser#getset_stmt}.
+	 * labeled alternative in {@link dslParser#getset_body_stmt}.
 	 * @param ctx the parse tree
 	 */
 	void enterGetset_array(dslParser.Getset_arrayContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code getset_array}
-	 * labeled alternative in {@link dslParser#getset_stmt}.
+	 * labeled alternative in {@link dslParser#getset_body_stmt}.
 	 * @param ctx the parse tree
 	 */
 	void exitGetset_array(dslParser.Getset_arrayContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code getset_none}
-	 * labeled alternative in {@link dslParser#getset_stmt}.
+	 * labeled alternative in {@link dslParser#getset_body_stmt}.
 	 * @param ctx the parse tree
 	 */
 	void enterGetset_none(dslParser.Getset_noneContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code getset_none}
-	 * labeled alternative in {@link dslParser#getset_stmt}.
+	 * labeled alternative in {@link dslParser#getset_body_stmt}.
 	 * @param ctx the parse tree
 	 */
 	void exitGetset_none(dslParser.Getset_noneContext ctx);

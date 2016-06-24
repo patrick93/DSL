@@ -11,12 +11,6 @@ public class PackageAST implements AST {
     }
 
     @Override
-    public String execute(SymbolTable symbolTable) {
-        String result = String.format(PACKAGE_STATEMENT, packageName);
-        return result;
-    }
-
-    @Override
     public void loadSymbolTable(SymbolTable symbolTable) throws Exception {
         symbolTable.setPackageName(packageName);
     }

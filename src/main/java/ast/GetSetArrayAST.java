@@ -14,20 +14,7 @@ public class GetSetArrayAST implements AST {
     }
 
     @Override
-    public String execute(SymbolTable symbolTable) throws Exception {
-        String result = "";
-        for (String property : properties) {
-            String propertyType = symbolTable.getPropertyType(property);
-            String methodName = property.substring(0,1).toUpperCase() + property.substring(1);
-            String getStatement = String.format(GET_BASE_STMT, propertyType, methodName, property);
-            String setStatement = String.format(SET_BASE_STMT, methodName, propertyType, property, property, property);
-            result += "\n" + getStatement + "\n\n" + setStatement + "\n";
-        }
-        return result;
-    }
-
-    @Override
     public void loadSymbolTable(SymbolTable symbolTable) throws Exception {
-
+        symbolTable.setGetSetProperties(properties);
     }
 }

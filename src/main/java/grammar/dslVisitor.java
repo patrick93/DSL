@@ -42,43 +42,57 @@ public interface dslVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProperty(dslParser.PropertyContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code constructor_all}
+	 * Visit a parse tree produced by the {@code constructor}
 	 * labeled alternative in {@link dslParser#constructor_stmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConstructor(dslParser.ConstructorContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code constructor_all}
+	 * labeled alternative in {@link dslParser#constructor_body_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitConstructor_all(dslParser.Constructor_allContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code constructor_array}
-	 * labeled alternative in {@link dslParser#constructor_stmt}.
+	 * labeled alternative in {@link dslParser#constructor_body_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitConstructor_array(dslParser.Constructor_arrayContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code constructor_none}
-	 * labeled alternative in {@link dslParser#constructor_stmt}.
+	 * labeled alternative in {@link dslParser#constructor_body_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitConstructor_none(dslParser.Constructor_noneContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code getset_all}
+	 * Visit a parse tree produced by the {@code getset}
 	 * labeled alternative in {@link dslParser#getset_stmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitGetset(dslParser.GetsetContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code getset_all}
+	 * labeled alternative in {@link dslParser#getset_body_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitGetset_all(dslParser.Getset_allContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code getset_array}
-	 * labeled alternative in {@link dslParser#getset_stmt}.
+	 * labeled alternative in {@link dslParser#getset_body_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitGetset_array(dslParser.Getset_arrayContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code getset_none}
-	 * labeled alternative in {@link dslParser#getset_stmt}.
+	 * labeled alternative in {@link dslParser#getset_body_stmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */

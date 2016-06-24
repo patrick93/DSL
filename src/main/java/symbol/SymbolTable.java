@@ -7,20 +7,9 @@ import java.util.List;
 public class SymbolTable {
     private String className;
     private String packageName;
-    private HashMap<String, String> properties;
-    private String[] keywords = {
-            "abstract","continue","for","new","switch", "assert",
-            "default", "if", "package", "synchronized", "boolean",
-            "do", "goto", "private", "this", "break", "double", "implements",
-            "protected", "throw", "byte", "else", "import", "public", "throws",
-            "case", "enum", "instanceof", "return", "transient", "catch", "extends",
-            "int","short", "try", "char", "final", "interface", "static", "void",
-            "class", "finally", "long", "strictfp", "volatile", "const", "float", "native", "super", "while"
-    };
-
-    public SymbolTable(HashMap<String, String> properties) {
-        this.properties = properties;
-    }
+    private HashMap<String, PropertySymbol> properties = new HashMap<String, PropertySymbol>();
+    private List<String> constructorProperties;
+    private List<String> getSetProperties;
 
     public List<String> getAllPropertiesNames() {
         return new ArrayList<String>(properties.keySet());
@@ -30,43 +19,20 @@ public class SymbolTable {
         return className;
     }
 
-    public String getPropertyType(String property) throws Exception {
-        String propertyType = properties.get(property);
-        if (propertyType == null){
-            throw new Exception("Don't exists a property with name " + property);
-        }
+    public PropertySymbol getProperty(String property){
         return properties.get(property);
     }
 
     public void addPropety(String propertyName, String propertyType) throws Exception {
-        if (isNotKeyword(propertyName)){
-            if (properties.get(propertyName) == null){
-                properties.put(propertyName, propertyType);
-            } else {
-                throw new Exception("Already exists a property with name " + propertyName);
-            }
+        if (properties.get(propertyName) == null){
+            properties.put(propertyName, new PropertySymbol(propertyName, propertyType));
         } else {
-            throw new Exception("Property name cannot be a keyword");
+            throw new Exception("Duplicate property with name " + propertyName);
         }
     }
 
     public void setClassName(String className) throws Exception {
-        if (isNotKeyword(className)){
-            this.className = className;
-        } else{
-            throw new Exception("Class name cannot be " + className);
-        }
-    }
-
-    private boolean isNotKeyword(String name) {
-        boolean result = true;
-        for (String keyword : keywords) {
-            if (keyword.equals(name)){
-                result = false;
-                break;
-            }
-        }
-        return result;
+        this.className = className;
     }
 
     public String getPackageName() {
@@ -74,12 +40,22 @@ public class SymbolTable {
     }
 
     public void setPackageName(String packageName) throws Exception {
-        String[] packagesParts = packageName.split("\\.");
-        for (String part: packagesParts) {
-            if (!isNotKeyword(part)){
-                throw new Exception("Package name cannot contain a keyword");
-            }
-        }
         this.packageName = packageName;
+    }
+
+    public void setConstructorProperties(List<String> constructorProperties) {
+        this.constructorProperties = constructorProperties;
+    }
+
+    public void setGetSetProperties(List<String> getSetProperties) {
+        this.getSetProperties = getSetProperties;
+    }
+
+    public List<String> getConstructorProperties() {
+        return constructorProperties;
+    }
+
+    public List<String> getGetSetProperties() {
+        return getSetProperties;
     }
 }

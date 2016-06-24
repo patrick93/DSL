@@ -13,12 +13,6 @@ public class PropertyAST implements AST {
     }
 
     @Override
-    public String execute(SymbolTable symbolTable) {
-        String result = String.format(PROPERTY_STATEMENT, propertyType, propertyName);
-        return result;
-    }
-
-    @Override
     public void loadSymbolTable(SymbolTable symbolTable) throws Exception {
         symbolTable.addPropety(propertyName, propertyType);
     }

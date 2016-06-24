@@ -1,11 +1,9 @@
 teste :
-    org.ufrj.teste,
-    [
-        teste: String,
+    package -> org.ufrj.teste,
+    properties -> [
+        prop1: String,
         prop2: int,
         prop3: boolean
     ],
-    all,
-    [
-        asd
-    ];
+    constructor -> none,
+    getterSetter -> all

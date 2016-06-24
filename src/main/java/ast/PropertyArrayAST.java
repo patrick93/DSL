@@ -12,15 +12,6 @@ public class PropertyArrayAST implements AST {
     }
 
     @Override
-    public String execute(SymbolTable symbolTable) throws Exception {
-        String result = "";
-        for (AST property : propetiesAST) {
-            result += "\t" + property.execute(symbolTable) + "\n";
-        }
-        return result;
-    }
-
-    @Override
     public void loadSymbolTable(SymbolTable symbolTable) throws Exception {
         for (AST property: propetiesAST) {
             property.loadSymbolTable(symbolTable);

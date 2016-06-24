@@ -4,24 +4,30 @@ grammar dsl;
     package grammar;
 }
 
-class_stmt: ID ':' package_stmt ',' properties_stmt ',' constructor_stmt ',' getset_stmt ';'  #class
+class_stmt: ID ':' package_stmt ',' properties_stmt ',' constructor_stmt ',' getset_stmt  #class
     ;
 
-package_stmt: PACKAGE_NAME  #package
+package_stmt: 'package' '->' PACKAGE_NAME  #package
     ;
 
-properties_stmt: '[' property_stmt (',' property_stmt)* ']' #properties
+properties_stmt: 'properties' '->' '[' property_stmt (',' property_stmt)* ']' #properties
     ;
 
 property_stmt: ID ':' ID #property
     ;
 
-constructor_stmt: 'all' #constructor_all
-    | '[' ID (',' ID)* ']' #constructor_array
-    | 'none' #constructor_none
+constructor_stmt: 'constructor' '->' constructor_body_stmt  #constructor
     ;
 
-getset_stmt: 'all' #getset_all
+constructor_body_stmt: 'all' #constructor_all
+   | '[' ID (',' ID)* ']' #constructor_array
+   | 'none' #constructor_none
+   ;
+
+getset_stmt: 'getterSetter' '->' getset_body_stmt #getset
+    ;
+
+getset_body_stmt: 'all' #getset_all
     | '[' ID (',' ID)* ']' #getset_array
     | 'none' #getset_none
     ;

@@ -3,21 +3,24 @@ package application;
 import ast.AST;
 import grammar.dslLexer;
 import grammar.dslParser;
+import models.SemanticModelFactory;
+import models.Template;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import symbol.SymbolTable;
 import visitor.Visitor;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.HashMap;
+import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
-        try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/input.txt"))){
+        String inputPath = args[0];
+        String outputPath = "";
+        if (args.length > 1){
+            outputPath = args[1];
+        }
+        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))){
             String inputString = "";
             String line;
             while ((line = br.readLine()) != null){
@@ -27,13 +30,18 @@ public class Main {
             dslLexer lexer = new dslLexer(input);
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             dslParser parser = new dslParser(tokens);
-            ParseTree tree = parser.class_stmt(); // load; start at prog
+            ParseTree tree = parser.class_stmt();
 
             Visitor visitor = new Visitor();
             AST ast = visitor.visit(tree);
-            SymbolTable symbolTable = new SymbolTable(new HashMap<String, String>());
+            SymbolTable symbolTable = new SymbolTable();
             ast.loadSymbolTable(symbolTable);
-            ast.execute(symbolTable);
+            Template template = SemanticModelFactory.buildSemanticModelFromSymbolTable(symbolTable);
+            String filepath = String.format(outputPath + "%s.java", symbolTable.getClassName());
+
+            PrintWriter writer = new PrintWriter(filepath, "UTF-8");
+            writer.println(template.getTemplate());
+            writer.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

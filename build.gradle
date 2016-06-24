@@ -11,6 +11,12 @@ targetCompatibility = 1.7
 
 mainClassName = 'application.Main'
 
+run {
+    if (project.hasProperty("appArgs") ) {
+        args Eval.me(appArgs)
+    }
+}
+
 generateGrammarSource {
     arguments += ["-visitor"]
     outputDirectory = file('src/main/java/grammar')

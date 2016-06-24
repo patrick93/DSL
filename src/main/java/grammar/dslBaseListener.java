@@ -67,6 +67,18 @@ public class dslBaseListener implements dslListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterConstructor(dslParser.ConstructorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConstructor(dslParser.ConstructorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterConstructor_all(dslParser.Constructor_allContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -98,6 +110,18 @@ public class dslBaseListener implements dslListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitConstructor_none(dslParser.Constructor_noneContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterGetset(dslParser.GetsetContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitGetset(dslParser.GetsetContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

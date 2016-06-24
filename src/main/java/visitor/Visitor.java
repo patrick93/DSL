@@ -46,6 +46,11 @@ public class Visitor extends dslBaseVisitor<AST> {
     }
 
     @Override
+    public AST visitConstructor(dslParser.ConstructorContext ctx) {
+        return visit(ctx.constructor_body_stmt());
+    }
+
+    @Override
     public AST visitConstructor_all(dslParser.Constructor_allContext ctx) {
         AST constructorAll = new ConstructorAllAST();
         return constructorAll;
@@ -65,6 +70,11 @@ public class Visitor extends dslBaseVisitor<AST> {
     public AST visitConstructor_none(dslParser.Constructor_noneContext ctx) {
         AST constructorNone = new ConstructorNoneAST();
         return constructorNone;
+    }
+
+    @Override
+    public AST visitGetset(dslParser.GetsetContext ctx) {
+        return visit(ctx.getset_body_stmt());
     }
 
     @Override
